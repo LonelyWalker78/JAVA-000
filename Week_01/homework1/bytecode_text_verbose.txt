@@ -1,0 +1,184 @@
+Classfile /D:/IdeaProjects/demo/src/main/java/com/example/bytecode/HelloBytecode.class
+  Last modified 2020-10-19; size 1022 bytes
+  MD5 checksum c9e58d6bb6d3e1690763f13d92e9498c
+  Compiled from "HelloBytecode.java"
+public class com.example.bytecode.HelloBytecode
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #18.#31        // java/lang/Object."<init>":()V
+   #2 = Fieldref           #17.#32        // com/example/bytecode/HelloBytecode.a1:I
+   #3 = Double             3.0d
+   #5 = Fieldref           #33.#34        // java/lang/System.out:Ljava/io/PrintStream;
+   #6 = Class              #35            // java/lang/StringBuilder
+   #7 = Methodref          #6.#31         // java/lang/StringBuilder."<init>":()V
+   #8 = String             #36            // addition:
+   #9 = Methodref          #6.#37         // java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #10 = Methodref          #6.#38         // java/lang/StringBuilder.append:(D)Ljava/lang/StringBuilder;
+  #11 = Methodref          #6.#39         // java/lang/StringBuilder.toString:()Ljava/lang/String;
+  #12 = Methodref          #40.#41        // java/io/PrintStream.println:(Ljava/lang/String;)V
+  #13 = String             #42            // subtraction:
+  #14 = String             #43            // division:
+  #15 = Methodref          #6.#44         // java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+  #16 = String             #45            // multiplication:
+  #17 = Class              #46            // com/example/bytecode/HelloBytecode
+  #18 = Class              #47            // java/lang/Object
+  #19 = Utf8               a1
+  #20 = Utf8               I
+  #21 = Utf8               <init>
+  #22 = Utf8               ()V
+  #23 = Utf8               Code
+  #24 = Utf8               LineNumberTable
+  #25 = Utf8               main
+  #26 = Utf8               ([Ljava/lang/String;)V
+  #27 = Utf8               StackMapTable
+  #28 = Class              #48            // "[Ljava/lang/String;"
+  #29 = Utf8               SourceFile
+  #30 = Utf8               HelloBytecode.java
+  #31 = NameAndType        #21:#22        // "<init>":()V
+  #32 = NameAndType        #19:#20        // a1:I
+  #33 = Class              #49            // java/lang/System
+  #34 = NameAndType        #50:#51        // out:Ljava/io/PrintStream;
+  #35 = Utf8               java/lang/StringBuilder
+  #36 = Utf8               addition:
+  #37 = NameAndType        #52:#53        // append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #38 = NameAndType        #52:#54        // append:(D)Ljava/lang/StringBuilder;
+  #39 = NameAndType        #55:#56        // toString:()Ljava/lang/String;
+  #40 = Class              #57            // java/io/PrintStream
+  #41 = NameAndType        #58:#59        // println:(Ljava/lang/String;)V
+  #42 = Utf8               subtraction:
+  #43 = Utf8               division:
+  #44 = NameAndType        #52:#60        // append:(I)Ljava/lang/StringBuilder;
+  #45 = Utf8               multiplication:
+  #46 = Utf8               com/example/bytecode/HelloBytecode
+  #47 = Utf8               java/lang/Object
+  #48 = Utf8               [Ljava/lang/String;
+  #49 = Utf8               java/lang/System
+  #50 = Utf8               out
+  #51 = Utf8               Ljava/io/PrintStream;
+  #52 = Utf8               append
+  #53 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #54 = Utf8               (D)Ljava/lang/StringBuilder;
+  #55 = Utf8               toString
+  #56 = Utf8               ()Ljava/lang/String;
+  #57 = Utf8               java/io/PrintStream
+  #58 = Utf8               println
+  #59 = Utf8               (Ljava/lang/String;)V
+  #60 = Utf8               (I)Ljava/lang/StringBuilder;
+{
+  public com.example.bytecode.HelloBytecode();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: iconst_0
+         6: putfield      #2                  // Field a1:I
+         9: return
+      LineNumberTable:
+        line 3: 0
+        line 5: 4
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=6, locals=6, args_size=1
+         0: bipush        6
+         2: istore_1
+         3: ldc2_w        #3                  // double 3.0d
+         6: dstore_2
+         7: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        10: new           #6                  // class java/lang/StringBuilder
+        13: dup
+        14: invokespecial #7                  // Method java/lang/StringBuilder."<init>":()V
+        17: ldc           #8                  // String addition:
+        19: invokevirtual #9                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        22: iload_1
+        23: i2d
+        24: dload_2
+        25: dadd
+        26: invokevirtual #10                 // Method java/lang/StringBuilder.append:(D)Ljava/lang/StringBuilder;
+        29: invokevirtual #11                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        32: invokevirtual #12                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        35: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        38: new           #6                  // class java/lang/StringBuilder
+        41: dup
+        42: invokespecial #7                  // Method java/lang/StringBuilder."<init>":()V
+        45: ldc           #13                 // String subtraction:
+        47: invokevirtual #9                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        50: iload_1
+        51: i2d
+        52: dload_2
+        53: dsub
+        54: invokevirtual #10                 // Method java/lang/StringBuilder.append:(D)Ljava/lang/StringBuilder;
+        57: invokevirtual #11                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        60: invokevirtual #12                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        63: iload_1
+        64: i2d
+        65: dload_2
+        66: dsub
+        67: d2i
+        68: istore        4
+        70: iload         4
+        72: ifle          122
+        75: iconst_1
+        76: istore        5
+        78: iload         5
+        80: iload         4
+        82: if_icmpge     119
+        85: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        88: new           #6                  // class java/lang/StringBuilder
+        91: dup
+        92: invokespecial #7                  // Method java/lang/StringBuilder."<init>":()V
+        95: ldc           #14                 // String division:
+        97: invokevirtual #9                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       100: iload_1
+       101: iload         5
+       103: idiv
+       104: invokevirtual #15                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+       107: invokevirtual #11                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+       110: invokevirtual #12                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       113: iinc          5, 1
+       116: goto          78
+       119: goto          150
+       122: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       125: new           #6                  // class java/lang/StringBuilder
+       128: dup
+       129: invokespecial #7                  // Method java/lang/StringBuilder."<init>":()V
+       132: ldc           #16                 // String multiplication:
+       134: invokevirtual #9                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       137: iload_1
+       138: i2d
+       139: dload_2
+       140: dmul
+       141: invokevirtual #10                 // Method java/lang/StringBuilder.append:(D)Ljava/lang/StringBuilder;
+       144: invokevirtual #11                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+       147: invokevirtual #12                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       150: return
+      LineNumberTable:
+        line 8: 0
+        line 9: 3
+        line 10: 7
+        line 11: 35
+        line 12: 63
+        line 13: 70
+        line 14: 75
+        line 15: 85
+        line 14: 113
+        line 18: 122
+        line 20: 150
+      StackMapTable: number_of_entries = 4
+        frame_type = 255 /* full_frame */
+          offset_delta = 78
+          locals = [ class "[Ljava/lang/String;", int, double, int, int ]
+          stack = []
+        frame_type = 250 /* chop */
+          offset_delta = 40
+        frame_type = 2 /* same */
+        frame_type = 27 /* same */
+}
+SourceFile: "HelloBytecode.java"

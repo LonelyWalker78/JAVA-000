@@ -1,0 +1,86 @@
+Compiled from "HelloBytecode.java"
+public class com.example.bytecode.HelloBytecode {
+  public com.example.bytecode.HelloBytecode();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: iconst_0
+       6: putfield      #2                  // Field a1:I
+       9: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: bipush        6
+       2: istore_1
+       3: ldc2_w        #3                  // double 3.0d
+       6: dstore_2
+       7: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      10: new           #6                  // class java/lang/StringBuilder
+      13: dup
+      14: invokespecial #7                  // Method java/lang/StringBuilder."<init>":()V
+      17: ldc           #8                  // String addition:
+      19: invokevirtual #9                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      22: iload_1
+      23: i2d
+      24: dload_2
+      25: dadd
+      26: invokevirtual #10                 // Method java/lang/StringBuilder.append:(D)Ljava/lang/StringBuilder;
+      29: invokevirtual #11                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      32: invokevirtual #12                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      35: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      38: new           #6                  // class java/lang/StringBuilder
+      41: dup
+      42: invokespecial #7                  // Method java/lang/StringBuilder."<init>":()V
+      45: ldc           #13                 // String subtraction:
+      47: invokevirtual #9                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      50: iload_1
+      51: i2d
+      52: dload_2
+      53: dsub
+      54: invokevirtual #10                 // Method java/lang/StringBuilder.append:(D)Ljava/lang/StringBuilder;
+      57: invokevirtual #11                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      60: invokevirtual #12                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      63: iload_1
+      64: i2d
+      65: dload_2
+      66: dsub
+      67: d2i
+      68: istore        4
+      70: iload         4
+      72: ifle          122
+      75: iconst_1
+      76: istore        5
+      78: iload         5
+      80: iload         4
+      82: if_icmpge     119
+      85: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      88: new           #6                  // class java/lang/StringBuilder
+      91: dup
+      92: invokespecial #7                  // Method java/lang/StringBuilder."<init>":()V
+      95: ldc           #14                 // String division:
+      97: invokevirtual #9                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     100: iload_1
+     101: iload         5
+     103: idiv
+     104: invokevirtual #15                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     107: invokevirtual #11                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     110: invokevirtual #12                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     113: iinc          5, 1
+     116: goto          78
+     119: goto          150
+     122: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+     125: new           #6                  // class java/lang/StringBuilder
+     128: dup
+     129: invokespecial #7                  // Method java/lang/StringBuilder."<init>":()V
+     132: ldc           #16                 // String multiplication:
+     134: invokevirtual #9                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     137: iload_1
+     138: i2d
+     139: dload_2
+     140: dmul
+     141: invokevirtual #10                 // Method java/lang/StringBuilder.append:(D)Ljava/lang/StringBuilder;
+     144: invokevirtual #11                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     147: invokevirtual #12                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     150: return
+}
