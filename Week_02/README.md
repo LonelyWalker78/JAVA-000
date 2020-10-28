@@ -1,20 +1,22 @@
 学习笔记
 
-不同GC的总结
+### 不同GC的总结
 
 1、-Xmx512m -Xms512m，压测1分钟：
-	serial  parallel  cms	  g1
-rps	1624.8	1920.3	 1662.3	 2489
-max	338ms	309ms	 321ms	 275ms
-min	0ms	    0ms	     0ms     0ms
-avg	1.6ms	1.5ms	 1.5ms	 5ms
+|  | serial | parallel | cms | g1 |
+| --- | --- | --- | --- |
+| rps | 1578.4 | 1864.5 | 1592.6 | 2369
+| max | 353ms | 324ms | 336ms | 290ms
+| min | 0ms | 0ms  | 0ms | 0ms
+| avg | 1.7ms | 1.6ms | 1.6ms | 5.1ms
 
 2、-Xmx1024m –Xms1024m，压测1分钟：
-	serial  parallel  cms     g1
-rps	1812.2	1950.5   1940.5	 2510.6
-max	310ms	260ms    265ms	 120ms
-min	0ms	    0ms	     0ms     0ms
-avg	1.5ms	1.1ms    1.1ms	 4.5ms
+|  | serial | parallel | cms | g1 |
+| --- | --- | --- | --- |
+| rps | 1765.3 | 1843.6 | 1834.8 | 2461.8
+| max | 325ms | 275ms | 280ms | 135ms
+| min | 0ms | 0ms  | 0ms | 0ms
+| avg | 1.6ms | 1.2ms | 1.2ms | 4.6ms
 
 同种GC:
 堆内存太小的话，无论使用哪种GC，执行效率都很低，很容易OOM，
