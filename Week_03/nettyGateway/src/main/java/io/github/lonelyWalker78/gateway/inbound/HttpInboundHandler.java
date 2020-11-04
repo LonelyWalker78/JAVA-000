@@ -1,6 +1,10 @@
 package io.github.lonelyWalker78.gateway.inbound;
 
-import io.github.lonelyWalker78.gateway.outbound.httpclient.HttpclientOutboundHandler;
+import io.github.lonelyWalker78.gateway.filter.HttpRequestFilter;
+import io.github.lonelyWalker78.gateway.filter.TokenFilter;
+import io.github.lonelyWalker78.gateway.outbound.netty4.NettyHttpClient;
+import io.github.lonelyWalker78.gateway.router.HttpEndpointRouter;
+import io.github.lonelyWalker78.gateway.router.OrderRouter;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.codec.http.FullHttpRequest;
@@ -8,15 +12,24 @@ import io.netty.util.ReferenceCountUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HttpInboundHandler extends ChannelInboundHandlerAdapter {
 
     private static Logger logger = LoggerFactory.getLogger(HttpInboundHandler.class);
-    private final String proxyServer;
-    private HttpclientOutboundHandler handler;
+    private NettyHttpClient nettyHttpClient;
+    private List<HttpRequestFilter> filters = new ArrayList<>();
+    private HttpEndpointRouter httpEndpointRouter;
+    private List<String> endpoints = new ArrayList<String>(){{
+        add("127.0.0.1:8088");
+        add("127.0.0.1:8089");
+    }};
     
-    public HttpInboundHandler(String proxyServer) {
-        this.proxyServer = proxyServer;
-        handler = new HttpclientOutboundHandler(this.proxyServer);
+    public HttpInboundHandler() {
+        nettyHttpClient = new NettyHttpClient();
+        filters.add(new TokenFilter());
+        httpEndpointRouter = new OrderRouter();
     }
     
     @Override
@@ -29,13 +42,11 @@ public class HttpInboundHandler extends ChannelInboundHandlerAdapter {
         try {
             //logger.info("channelRead流量接口请求开始，时间为{}", startTime);
             FullHttpRequest fullRequest = (FullHttpRequest) msg;
-//            String uri = fullRequest.uri();
-//            //logger.info("接收到的请求url为{}", uri);
-//            if (uri.contains("/test")) {
-//                handlerTest(fullRequest, ctx);
-//            }
-    
-            handler.handle(fullRequest, ctx);
+            //实现过滤器
+            for (HttpRequestFilter httpRequestFilter : filters) {
+                httpRequestFilter.filter(fullRequest, ctx);
+            }
+            nettyHttpClient.handle(fullRequest, ctx, httpEndpointRouter.route(endpoints));
     
         } catch(Exception e) {
             e.printStackTrace();
@@ -43,34 +54,5 @@ public class HttpInboundHandler extends ChannelInboundHandlerAdapter {
             ReferenceCountUtil.release(msg);
         }
     }
-
-//    private void handlerTest(FullHttpRequest fullRequest, ChannelHandlerContext ctx) {
-//        FullHttpResponse response = null;
-//        try {
-//            String value = "hello,lonelyWalker78";
-//            response = new DefaultFullHttpResponse(HTTP_1_1, OK, Unpooled.wrappedBuffer(value.getBytes("UTF-8")));
-//            response.headers().set("Content-Type", "application/json");
-//            response.headers().setInt("Content-Length", response.content().readableBytes());
-//
-//        } catch (Exception e) {
-//            logger.error("处理测试接口出错", e);
-//            response = new DefaultFullHttpResponse(HTTP_1_1, NO_CONTENT);
-//        } finally {
-//            if (fullRequest != null) {
-//                if (!HttpUtil.isKeepAlive(fullRequest)) {
-//                    ctx.write(response).addListener(ChannelFutureListener.CLOSE);
-//                } else {
-//                    response.headers().set(CONNECTION, KEEP_ALIVE);
-//                    ctx.write(response);
-//                }
-//            }
-//        }
-//    }
-//
-//    @Override
-//    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-//        cause.printStackTrace();
-//        ctx.close();
-//    }
 
 }
