@@ -81,7 +81,6 @@ public class HttpclientOutboundHandler {
             }
             ctx.flush();
         }
-
     }
 
     private void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
