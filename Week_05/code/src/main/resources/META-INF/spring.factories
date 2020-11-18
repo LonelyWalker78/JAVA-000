@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.lincj.homework.lesson10.homework4.AutoConfigrutionClass
